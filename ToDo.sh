@@ -24,14 +24,14 @@ show_menu() {
 }
 
 add_task() {
-    echo -n "Enter your task text: "
+    echo -n "Enter your todo task: "
     read task
     echo "$task" >> $TODO_FILE
     echo "Task has been added!"
 }
 
 change_status() {
-    echo "NotDone Tasks:"
+    echo "ToDo Tasks:"
     cat -n $TODO_FILE
     echo ""
 
@@ -46,7 +46,7 @@ change_status() {
 }
 
 show_tasks() {
-    echo "NotDone Tasks:"
+    echo "ToDo Tasks:"
     cat -n $TODO_FILE
     echo ""
     echo "Done Tasks:"
@@ -54,7 +54,7 @@ show_tasks() {
 }
 
 delete_todo_task() {
-    echo "NotDone Tasks:"
+    echo "ToDo Tasks:"
     cat -n $TODO_FILE
     echo -n "Enter your Task No. to remove: "
     read task_num
@@ -75,7 +75,7 @@ delete_done_task() {
 search_tasks() {
     echo -n "Enter your word to search: "
     read query
-    echo "Founded search in NotDone tasks:"
+    echo "Founded search in ToDo tasks:"
     grep -n "$query" $TODO_FILE || echo "Not Found!."
     echo ""
     echo "Founded search in Done tasks:"
