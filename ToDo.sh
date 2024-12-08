@@ -30,6 +30,21 @@ add_task() {
     echo "Task has been added!"
 }
 
+#change_status() {
+#    echo "ToDo Tasks:"
+#    cat -n $TODO_FILE
+#    echo ""
+#
+#    echo -n "Enter the Task No. to mark as done: "
+#    read task_num
+#
+#    sed -i "${task_num}d" $TODO_FILE
+#
+#    echo "$task" >> $DONE_FILE
+#
+#    echo "Task has been marked as done!"
+#}
+
 change_status() {
     echo "ToDo Tasks:"
     cat -n $TODO_FILE
@@ -38,12 +53,19 @@ change_status() {
     echo -n "Enter the Task No. to mark as done: "
     read task_num
 
-    sed -i "${task_num}d" $TODO_FILE
+    task=$(sed -n "${task_num}p" $TODO_FILE)
 
-    echo "$task" >> $DONE_FILE
+    if [ -n "$task" ]; then
+        sed -i "${task_num}d" $TODO_FILE
 
-    echo "Task has been marked as done!"
+        echo "$task" >> $DONE_FILE
+
+        echo "Task has been marked as done!"
+    else
+        echo "Invalid task number. No task found."
+    fi
 }
+
 
 show_tasks() {
     echo "ToDo Tasks:"
