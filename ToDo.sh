@@ -12,45 +12,30 @@ if [ ! -f $DONE_FILE ]; then
 fi
 
 show_menu() {
-    echo "ToDo Application"
-    echo "1. Add new Task"
-    echo "2. Change task status"
-    echo "3. Show your tasks"
-    echo "4. Remove a todo task"
-    echo "5. Remove a done task"
-    echo "6. Search a task"
-    echo "7. Exit"
-    echo -n "Choose: "
+    echo "ToDo Application📋"
+    echo "1. Add new Task📌"
+    echo "2. Change task status🔁"
+    echo "3. Show your tasks 📃"
+    echo "4. Remove a todo task❌"
+    echo "5. Remove a done task❌"
+    echo "6. Search a task🔎"
+    echo "7. Exit👋🏻"
+    echo "Choose: "
 }
 
 add_task() {
-    echo -n "Enter your todo task: "
+    echo -n "Enter your todo task📩:"
     read task
     echo "$task" >> $TODO_FILE
-    echo "Task has been added!"
+    echo "Task has been added!✅"
 }
 
-#change_status() {
-#    echo "ToDo Tasks:"
-#    cat -n $TODO_FILE
-#    echo ""
-#
-#    echo -n "Enter the Task No. to mark as done: "
-#    read task_num
-#
-#    sed -i "${task_num}d" $TODO_FILE
-#
-#    echo "$task" >> $DONE_FILE
-#
-#    echo "Task has been marked as done!"
-#}
-
 change_status() {
-    echo "ToDo Tasks:"
+    echo "ToDo Tasks📃: "
     cat -n $TODO_FILE
     echo ""
 
-    echo -n "Enter the Task No. to mark as done: "
+    echo -n "Enter the Task No. to mark as done🆔: "
     read task_num
 
     task=$(sed -n "${task_num}p" $TODO_FILE)
@@ -60,48 +45,48 @@ change_status() {
 
         echo "$task" >> $DONE_FILE
 
-        echo "Task has been marked as done!"
+        echo "Task has been marked as done!✅"
     else
-        echo "Invalid task number. No task found."
+        echo "Invalid task number. No task found❗"
     fi
 }
 
 
 show_tasks() {
-    echo "ToDo Tasks:"
+    echo "ToDo Tasks📃:"
     cat -n $TODO_FILE
     echo ""
-    echo "Done Tasks:"
+    echo "Done Tasks📃:"
     cat -n $DONE_FILE
 }
 
 delete_todo_task() {
-    echo "ToDo Tasks:"
+    echo "ToDo Tasks📃:"
     cat -n $TODO_FILE
-    echo -n "Enter your Task No. to remove: "
+    echo -n "Enter your Task No. to remove🆔:"
     read task_num
     sed -i "${task_num}d" $TODO_FILE
-    echo "Task has been deleted."
+    echo "Task has been deleted✅"
 }
 
 delete_done_task() {
-    echo "Done Tasks:"
+    echo "Done Tasks📃:"
     cat -n $DONE_FILE
-    echo -n "Enter your Task No. to remove: "
+    echo -n "Enter your Task No. to remove🆔:"
     read task_num
     sed -i "${task_num}d" $DONE_FILE
-    echo "Task has been deleted from Done tasks."
+    echo "Task has been deleted from Done tasks✅"
 }
 
 
 search_tasks() {
-    echo -n "Enter your word to search: "
+    echo -n "Enter your word to search📑:"
     read query
-    echo "Founded search in ToDo tasks:"
-    grep -n "$query" $TODO_FILE || echo "Not Found!."
+    echo "Founded search in ToDo tasks📃:"
+    grep -n "$query" $TODO_FILE || echo "Not Found❗"
     echo ""
-    echo "Founded search in Done tasks:"
-    grep -n "$query" $DONE_FILE || echo "Not Found!."
+    echo "Founded search in Done tasks📃:"
+    grep -n "$query" $DONE_FILE || echo "Not Found❗"
 }
 
 while true; do
@@ -114,8 +99,8 @@ while true; do
         4) delete_todo_task ;;
         5) delete_done_task;;
         6) search_tasks ;;
-        7) echo "Exit."; break ;;
-        *) echo "Not valid! Please try again." ;;
+        7) break ;;
+        *) echo "Not valid! Please try again❗" ;;
     esac
     echo ""
 done
