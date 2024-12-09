@@ -14,22 +14,22 @@ read num2
 
 if [[ "$function" == "+" ]];  then
   sum=$((num1+num2))
-  echo "The sum is: $sum"
+  echo "The result is: $sum"
   fi
 
 if [[ "$function" == "-" ]];  then
   min=$((num1-num2))
-  echo "The sum is: $min"
+  echo "The result is: $min"
   fi
 
 if [[ "$function" == "*" ]];  then
   mul=$((num1*num2))
-  echo "The sum is: $mul"
+  echo "The result is: $mul"
   fi
 
 if [[ "$function" == "/" ]];  then
   div=$((num1/num2))
-  echo "The sum is: $div"
+  echo "The result is: $div"
   fi
 
 done
