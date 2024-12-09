@@ -10,7 +10,7 @@ do
     do
       echo "Second" $j
       sleep 1
-      for ((c=1; c<=j; c++))
+      for ((c=1; c<=10; c++))
         do
           echo -n "*"
         done
