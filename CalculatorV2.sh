@@ -28,6 +28,10 @@ if [[ "$function" == "*" ]];  then
   fi
 
 if [[ "$function" == "/" ]];  then
+  if (( num2 == 0 )); then
+      echo "Error: Division by zero!"
+      break
+    fi
   div=$((num1/num2))
   echo "The result is: $div"
   fi
