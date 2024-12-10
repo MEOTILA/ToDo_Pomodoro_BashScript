@@ -18,7 +18,7 @@ do
       done
 
 
-    if (( $i>=4  ))
+    if (( $i % 4 == 0  ))
     then
         echo "Time for a long break of 5 seconds!"
         for ((k=1; k<=5; k++))
